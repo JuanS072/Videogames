@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { Link } from "react-router-dom";
-import { createIndb, fetchGenres, fetchVideogames, filteredrating, filtergenres, sort } from "../store/action";
+import { createIndb, fetchGenres, fetchVideogames, filteredrating, filtergenres, sort, sortalgabetico } from "../store/action";
 import { API, ASCENDENTE,  DATABASE, DESCENDENTE } from "./constantes/sort";
 import SearchBar from "./SearchBar";
 import "./videogame.css";
@@ -18,13 +18,17 @@ useEffect(() => {
 },[dispatch])
 
 const ratin= useSelector((state) => state.filteredGames);
-console.log(ratin)
+
 
 
 function HandleFilterGenres(e){
 dispatch(filtergenres(e.target.value))
 }
-
+function handleclickalfa(e){
+  dispatch(sortalgabetico(e.target.value))
+  setOrden(`Ordenados${e.target.value}`)
+  console.log(e.target.value, 'handlealfa')
+} 
 
   function HandleClick(e){
     e.preventDefault()
@@ -52,13 +56,21 @@ console.log(e.target.value,'target')
      <Link to='/' className='h1h3'>  <h1>Videogames</h1> </Link>
     <Link to='/videogame' className='h1h'><h3>Crear Juego</h3></Link>
     <button onClick={e =>{HandleClick(e)}}className='Button' >Reload Page</button>
-     <div>
-     <SearchBar/>
-     <select onChange={e => HandleClickAsc(e)} className='OrdenNav'>
+    <label><input type='checkbox'
+     name='alfabético' value='alfabético' onClick={e => handleclickalfa(e)}/>alfabético </label>
+
+       <select onChange={e => HandleClickAsc(e)} className='OrdenNav2'>
      <option value='todos'>Todos</option>
       <option value={ASCENDENTE}>Ascendente</option>
       <option value={DESCENDENTE}>Descendente</option>
      </select>
+     <div>
+     <SearchBar/>
+     {/* <select onChange={e => HandleClickAsc(e)} className='OrdenNav'>
+     <option value='todos'>Todos</option>
+      <option value={ASCENDENTE}>Ascendente</option>
+      <option value={DESCENDENTE}>Descendente</option>
+     </select> */}
      <select  onChange={e => HandlerFilterRating(e)} className='OrdenNav' >                
                 {ratin.length > 0? (ratin?.map(el=> {
                             return<option value={el.rating}> {el.rating} </option>

@@ -1,5 +1,5 @@
 import { ASCENDENTE, DATABASE, DESCENDENTE } from "../../components/constantes/sort";
-import { CLEAR, CREATED, FILTEREDRATING, FILTERGENRES, GENERO, GET_VIDEOGAMES, ID, POSTEO, SEARCH_VIDEOGAMES, SORT } from "../action";
+import { CLEAR, CREATED, FILTEREDRATING, FILTERGENRES, GENERO, GET_VIDEOGAMES, ID, POSTEO, SEARCH_VIDEOGAMES, SORT, SORTALFA } from "../action";
 
 const initialState = {
     videogames: [],
@@ -24,6 +24,21 @@ switch(action.type){
             ...state,
             filteredGames : action.payload
         }
+        case SORTALFA:
+            let ordergamesalfa=[...state.videogames]
+            ordergamesalfa.sort((a,b)=>{
+                if (a.name > b.name){
+                    return 1;
+                }else if(a.name < b.name){
+                    return -1 ;
+                }
+                return 0;
+            })
+           
+            return {
+                ...state,
+                filteredGames : ordergamesalfa
+            }
     case SORT:
         let ordergames=[...state.videogames]
         ordergames = ordergames.sort((a, b)=>{
