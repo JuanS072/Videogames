@@ -93,12 +93,12 @@ export function sort(order){
     }
 }
 
-export function sortalgabetico(order){
-    return {
-        type: SORTALFA,
-        payload: order
-    }
-}
+// export function sortalgabetico(order){
+//     return {
+//         type: SORTALFA,
+//         payload: order
+//     }
+// }
 
 export function filteredrating(payload){
 console.log(payload,'payload')

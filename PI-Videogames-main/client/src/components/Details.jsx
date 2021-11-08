@@ -25,7 +25,7 @@ export default function Details(props){
       Gamesid.id ? <div className='details'>
         <h1>{Gamesid.name}</h1>
         <img src= {Gamesid.img? Gamesid.img : Gamesid.image} alt="imagen not Found" width="500px" heigth="500px" />
-        <h2>{!Gamesid.createinBD? Gamesid.genero + ' ' : Gamesid.genero?.map( el =>(<div key={el}>{el.name + (' ')}</div>) )}</h2>
+        <h2>{Gamesid? Gamesid.genero + ' ' : Gamesid.genero?.map( el =>(<div key={el}>{el.name + (' ')}</div>) )}</h2>
         <h2>{Gamesid.platforms}</h2>
         <h2>{Gamesid.released}</h2>
         <h2>{Gamesid.Descripción}</h2>

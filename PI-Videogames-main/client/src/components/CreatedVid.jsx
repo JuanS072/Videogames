@@ -25,13 +25,13 @@ function Validacion(input){
 export default function VideogameCreate(){
     const dispatch = useDispatch()
     const history = useHistory()
-    const generos = useSelector((state)=>state.filteredGenres)
-    console.log(generos)
+    const genero = useSelector((state)=>state.filteredGenres)
+    console.log(genero)
     const [errors, setErrors]= useState({})
     const [input , setInput]= useState({
         name:"",
         image:"",
-        generos:[],
+        genero:[],
         platforms:[],
         Descripción:"",
         released : "",
@@ -44,7 +44,7 @@ export default function VideogameCreate(){
     setInput({
         name:"",
         image:"",
-        generos:[],
+        genero:[],
         platforms:[],
         Descripción:"",
         released:"",
@@ -56,14 +56,14 @@ export default function VideogameCreate(){
     function selectHandle(e){
         setInput({
             ...input,
-            generos:[...input.generos,e.target.value]
+            genero:[...input.genero,e.target.value]
         })
     }
 
     function handleDelete(el){
         setInput({
             ...input,
-            generos: input.generos.filter((genre)=> genre !== el)
+            genero: input.genero.filter((genre)=> genre !== el)
         })
     }
 
@@ -150,15 +150,15 @@ export default function VideogameCreate(){
                     )}
                 </div>
                 <select onChange={(e)=>{selectHandle(e)}}>
-                 {generos.map((gen)=>{
+                 {genero.map((gen)=>{
                     return  <option value={gen.name}>{gen.name}</option>
                  })}   
                 </select>
-                 <ul><li>{input.generos.map(e => e + ",")}</li></ul>
+                 <ul><li>{input.genero.map(e => e + ", ")}</li></ul>
                {input.name && input.image && input.platforms && input.released && input.Descripción && <button type='submit' >Crear</button>} 
             </form>
            
-            {input.generos.map(el => <div className='divgen'>
+            {input.genero.map(el => <div className='divgen'>
                 <p>{el}</p>
                 <button onClick={()=> handleDelete(el)}>x</button>
             </div>)}
