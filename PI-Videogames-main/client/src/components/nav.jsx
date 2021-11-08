@@ -66,11 +66,6 @@ console.log(e.target.value,'target')
      </select>
      <div>
      <SearchBar/>
-     {/* <select onChange={e => HandleClickAsc(e)} className='OrdenNav'>
-     <option value='todos'>Todos</option>
-      <option value={ASCENDENTE}>Ascendente</option>
-      <option value={DESCENDENTE}>Descendente</option>
-     </select> */}
      <select  onChange={e => HandlerFilterRating(e)} className='OrdenNav' >                
                 {ratin.length > 0? (ratin?.map(el=> {
                             return<option value={el.rating}> {el.rating} </option>
