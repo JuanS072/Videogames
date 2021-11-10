@@ -3,12 +3,10 @@ const {Videogame, Genres} = require('../db')
 const {Op}= require('sequelize')
 const {v4: uuidv4}= require('uuid');
 const axios = require('axios');
-//const express = require('express')
 const {
    MY_APIKEY
   } = process.env;
 const router = Router();
-//router.use(express.json());
 /*
 [] GET /videogames:///HECHOOO
 Obtener un listado de los videojuegos
@@ -21,6 +19,7 @@ Si no existe ningún videojuego mostrar un mensaje adecuado
 */
 
 router.get('/videogames', async (req, res, next)=>{
+    try{
     let name = req.query.name;
     let apiuno;
     let apidos;
@@ -74,8 +73,10 @@ var promesas = await Promise.all([apiuno, apidos, apitres])
        }
      })
  const concats = gamebd.concat(get)
- 
  res.send(concats)
+    } catch(error) {
+        next(error)
+    }
    })
 
 
@@ -425,13 +426,5 @@ router.get('/videogames', async (req, res, next)=>{
 */
 
 
-/*
-router.put('/', (req, res, next)=>{
-    res.send('soy put  /videogame')
-})
 
-router.delete('/', (req, res, next)=>{
-    res.send('soy delete /videogame')
-})
-*/
 
