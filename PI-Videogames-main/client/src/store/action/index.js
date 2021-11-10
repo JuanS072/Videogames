@@ -101,7 +101,6 @@ export function sort(order){
  }
 
 export function filteredrating(payload){
-console.log(payload,'payload')
     return {
         type: FILTEREDRATING,
         payload
@@ -109,7 +108,6 @@ console.log(payload,'payload')
 }
 
 export function filtergenres(payload){
-    console.log(payload, 'payload')
     return {
         type: FILTERGENRES,
         payload

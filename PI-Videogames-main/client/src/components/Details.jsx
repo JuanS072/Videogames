@@ -12,7 +12,8 @@ export default function Details(props){
           dispatch(Clear())
         }
     }, [dispatch])
-    const Gamesid = useSelector((state)=>state.Gamedetails)
+    const Gamesid = useSelector(state=>state.Gamedetails)
+  
 
    
     return <div  className='detailss' >

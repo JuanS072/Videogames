@@ -75,13 +75,19 @@ switch(action.type){
                         filteredGames: filtereGenres
                     } 
                     case FILTEREDRATING:
-                        const allRatings = state.videogames
-                        console.log(allRatings,'allrat')
-                        const filteredRatings = action.payload === 'todos' ? allRatings : allRatings.filter(el => el.rating == action.payload)
-                     console.log(filteredRatings, 'ratings')
+                        let orderrating=[...state.videogames]
+                     orderrating = orderrating.sort((a, b)=>{
+                  if(a.rating < b.rating){
+                     return action.payload === 'ratinga' ? -1 : 1;
+                     }
+                     if(a.rating > b.rating){
+                         return action.payload === 'ratingb' ? 1 : -1;
+                         }
+                           return 0;
+                     })
                         return{
                             ...state,
-                            filteredGames: filteredRatings
+                            filteredGames: action.payload ==='todos' ? state.videogames : orderrating
                         }
             case POSTEO :
                 return{
@@ -102,3 +108,15 @@ switch(action.type){
 
     }
 }
+
+
+
+// case FILTEREDRATING:
+//     const allRatings = state.videogames
+//     console.log(allRatings,'allrat')
+//     const filteredRatings = action.payload === 'todos' ? allRatings : allRatings.filter(el => el.rating == action.payload)
+//  console.log(filteredRatings, 'ratings')
+//     return{
+//         ...state,
+//         filteredGames: filteredRatings
+//     }

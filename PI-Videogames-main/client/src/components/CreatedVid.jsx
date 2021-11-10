@@ -8,16 +8,19 @@ import './videogame.css'
 function Validacion(input){
     let errors = {}
     if(!input.name){
-        errors.name = 'Se necesita ingresar un name';
+        errors.name = 'Se necesita ingresar un nombre';
     }else if(!input.image){
-        errors.image = 'Se necesita ingresar una image';
+        errors.image = 'Se necesita ingresar una imagen';
     }else if(!input.platforms){
         errors.platforms = 'Se necesita ingresar una plataforma'
     }else if (!input.Descripción){
         errors.Descripción = 'Se necesita ingresar una Descripción'
     }else if(!input.released){
-        errors.released = 'Se necesita ingresar una released'
+        errors.released = 'Se necesita ingresar una fecha de estreno'
     }
+    // }else if(input.released !== Number){
+    //     errors.released = 'tiene que ser una fecha o un numero'
+    // }
     return errors;
 }
 
@@ -49,8 +52,6 @@ export default function VideogameCreate(){
         Descripción:"",
         released:"",
     })
-    console.log(input)
-    console.log(setInput, 'set')
     history.push('/home')
     }
     function selectHandle(e){

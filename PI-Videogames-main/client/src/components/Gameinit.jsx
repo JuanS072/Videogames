@@ -11,4 +11,4 @@ return <div className='Gameinit'>
 </div>
 }
 
-//<Link to='/home'> </Link>   className='fondo'   justify-content: center center;
+

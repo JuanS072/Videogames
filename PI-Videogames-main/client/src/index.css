@@ -1,5 +1,10 @@
 body {
   
+  background:url(https://w7.pngwing.com/pngs/152/162/png-transparent-dishonored-prey-borderlands-world-of-warcraft-xbox-360-game-game-computer-wallpaper-playstation-4.png);
+  background-position: center center;
+   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

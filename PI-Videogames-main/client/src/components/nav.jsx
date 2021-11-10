@@ -47,7 +47,6 @@ function HandlerFilterCreated(e){
 
 function HandlerFilterRating(e){
 dispatch(filteredrating(e.target.value))
-console.log(e.target.value,'target')
 }
 
 
@@ -56,7 +55,8 @@ console.log(e.target.value,'target')
      <Link to='/' className='h1h3'>  <h1>Videogames</h1> </Link>
     <Link to='/videogame' className='h1h'><h3>Crear Juego</h3></Link>
     <button onClick={e =>{HandleClick(e)}}className='Button' >Reload Page</button>
-    <label><input type='checkbox'
+    
+    <label className='checkbox'><input type='checkbox'
      name='alfabético' value='alfabético' onClick={e => handleclickalfa(e)}/>alfabético </label>
 
        <select onChange={e => HandleClickAsc(e)} className='OrdenNav2'>
@@ -66,14 +66,10 @@ console.log(e.target.value,'target')
      </select>
      <div>
      <SearchBar/>
-     <select  onChange={e => HandlerFilterRating(e)} className='OrdenNav' >                
-                {ratin.length > 0? (ratin?.map(el=> {
-                            return<option value={el.rating}> {el.rating} </option>
-                          })
-                          ) :
-                          (
-                              <option>loading...</option>
-                          )}
+     <select  onChange={e => HandlerFilterRating(e)} className='OrdenNav' >   
+       <option value='todos'>Todos</option>             
+       <option value = 'ratinga'>Rating max</option>
+       <option value = 'ratingb'>Rating min</option>
      </select>
      <select onChange={e => HandlerFilterCreated(e)} className='OrdenNav' >
      <option value='todos'>Todos</option>
