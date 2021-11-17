@@ -19,7 +19,7 @@ export function Clear(){
 
 export function fetchID(id){
     return function(dispatch){
-        axios.get('/videogames/' + id)
+        axios.get(`/videogames/` + id)
         .then((result)=>{
             dispatch({
                 type: ID,
@@ -49,7 +49,7 @@ export function fetchID(id){
 
 export function fetchGenres(){
     return function(dispatch){
-        axios.get('/genres')
+        axios.get(`/genres`)
         .then((result)=>{
             dispatch({
                 type: GENERO,
@@ -64,7 +64,7 @@ export function fetchGenres(){
 
 export function postVideogame(payload){
     return async function (dispatch){
-        const respuesta = await axios.post('/videogame', payload)
+        const respuesta = await axios.post(`/videogame`, payload)
         console.log(respuesta);
         return respuesta;
     }
@@ -72,7 +72,7 @@ export function postVideogame(payload){
 
 export function fetchVideogames(){
     return function(dispatch){
-        axios.get('/videogames/')
+        axios.get(`/videogames/`)
         .then((result)=>{
             dispatch({
                 type: GET_VIDEOGAMES,
@@ -88,7 +88,7 @@ export function fetchVideogames(){
 
 export function searchVideogames(search){
     return function(dispatch){
-        axios.get('/videogames?name='+ search)
+        axios.get(`/videogames?name=`+ search)
         .then((result)=>{
             dispatch({
                 type: SEARCH_VIDEOGAMES,
