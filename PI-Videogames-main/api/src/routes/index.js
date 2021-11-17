@@ -9,9 +9,9 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 //router.use(express.json());
-router.use('/', videoRoute);
+router.use('/api', videoRoute);
 
-router.use('/', Routegene);
+router.use('/api', Routegene);
 
 
 module.exports = router;
