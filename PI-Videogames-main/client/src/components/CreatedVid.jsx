@@ -55,10 +55,13 @@ export default function VideogameCreate(){
     history.push('/home')
     }
     function selectHandle(e){
-        setInput({
-            ...input,
-            genero:[...input.genero,e.target.value]
-        })
+        if(!input.genero.find(el => el === e.target.value)){
+            setInput({
+                ...input,
+                genero:[...input.genero,e.target.value]
+            })
+        }
+       
     }
 
     function handleDelete(el){
@@ -130,7 +133,7 @@ export default function VideogameCreate(){
                     <label className ='label4'>released</label>
                     <input 
                     className='input'
-                    type="text"
+                    type="date"
                     value= {input.released}
                     name="released"
                     onChange={handleChange}/>

@@ -7,6 +7,7 @@ const {
    MY_APIKEY
   } = process.env;
 const router = Router();
+
 /*
 [] GET /videogames:///HECHOOO
 Obtener un listado de los videojuegos

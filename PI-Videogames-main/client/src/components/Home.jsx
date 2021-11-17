@@ -8,6 +8,7 @@ import Nav from "./nav"
  export default function Home(){
    let videogame = useSelector((state)=> state.filteredGames)
    let dispatch = useDispatch()
+   
    const [currentpage, setCurrenpage] = useState(1);
    const [gamesPage, setGamespage] = useState(15)
   const indiceLastGames = currentpage * gamesPage;
