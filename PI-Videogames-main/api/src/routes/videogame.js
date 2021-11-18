@@ -44,9 +44,9 @@ router.get('/videogames', async (req, res, next)=>{
     })
    
     }else{
-    apiuno = axios.get(`https://api.rawg.io/api/games?key=6e83385c0cc849f7858ba0caf52e5df3&page_size=40&page=1`)
-    apidos= axios.get(`https://api.rawg.io/api/games?key=6e83385c0cc849f7858ba0caf52e5df3&page_size=40&page=2`)
-    apitres=  axios.get(`https://api.rawg.io/api/games?key=6e83385c0cc849f7858ba0caf52e5df3&page_size=20&page=3`)
+    apiuno = axios.get(`https://api.rawg.io/api/games?key=${MY_APIKEY}&page_size=40&page=1`)
+    apidos= axios.get(`https://api.rawg.io/api/games?key=${MY_APIKEY}&page_size=40&page=2`)
+    apitres=  axios.get(`https://api.rawg.io/api/games?key=${MY_APIKEY}&page_size=20&page=3`)
 
      gamebd = await Videogame.findAll({
        includes: {
