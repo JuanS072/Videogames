@@ -60,6 +60,7 @@ router.get('/videogames', async (req, res, next)=>{
 }
 var promesas = await Promise.all([apiuno, apidos, apitres])
    promesas = promesas.map(p =>p.data.results)
+
    
    let get = promesas.flat().map(games => {
        return {
