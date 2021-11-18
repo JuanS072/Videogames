@@ -19,7 +19,7 @@ Obtener un listado de las primeros 15 videojuegos que contengan la palabra ingre
 Si no existe ningún videojuego mostrar un mensaje adecuado
 */
 
-router.get('/videogames', async (req, res, next)=>{
+router.get('videogames', async (req, res, next)=>{
     try{
     let name = req.query.name;
     let apiuno;
