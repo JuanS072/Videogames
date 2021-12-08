@@ -1,91 +1,33 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useEffect } from "react";
+import { useDispatch} from "react-redux";
 import { Link } from "react-router-dom";
-import { createIndb, fetchGenres, fetchVideogames, filteredrating, filtergenres, sort, sortalgabetico } from "../store/action";
-import { API, ASCENDENTE,  DATABASE, DESCENDENTE } from "./constantes/sort";
+import { fetchGenres, fetchVideogames} from "../store/action";
+
 import SearchBar from "./SearchBar";
 import "./videogame.css";
 
 function Nav() {
   let dispatch = useDispatch()
-  const [orden, setOrden] = useState('')
 
-const gen = useSelector((state) => state.filteredGenres);
 
 
 useEffect(() => {
  dispatch(fetchGenres());
 },[dispatch])
 
-const ratin= useSelector((state) => state.filteredGames);
-
-
-
-function HandleFilterGenres(e){
-dispatch(filtergenres(e.target.value))
-}
-function handleclickalfa(e){
-  dispatch(sortalgabetico(e.target.value))
-  setOrden(`Ordenados${e.target.value}`)
-  console.log(e.target.value, 'handlealfa')
-} 
 
   function HandleClick(e){
     e.preventDefault()
    dispatch(fetchVideogames())
  }  
-function HandleClickAsc(e){
- e.preventDefault()
-   dispatch(sort(e.target.value))
-   setOrden(`Ordenado${e.target.value}`)
- }
-
-
-function HandlerFilterCreated(e){
- dispatch(createIndb(e.target.value))
-}
-
-function HandlerFilterRating(e){
-dispatch(filteredrating(e.target.value))
-}
-
 
   return (
     <nav className='navbar'>
-     <Link to='/' className='h1h3'>  <h1>Videogames</h1> </Link>
-    <Link to='/videogame' className='h1h'><h3>Crear Juego</h3></Link>
-    <button onClick={e =>{HandleClick(e)}}className='Button' >Reload Page</button>
-    
-    <label className='checkbox'><input type='checkbox'
-     name='alfabético' value='alfabético' onClick={e => handleclickalfa(e)}/>alfabético </label>
-
-       <select onChange={e => HandleClickAsc(e)} className='OrdenNav2'>
-     <option value='todos'>Todos</option>
-      <option value={ASCENDENTE}>Ascendente</option>
-      <option value={DESCENDENTE}>Descendente</option>
-     </select>
+     <Link to='/' className='title' >  <h1>Videogames</h1> </Link>
+    <Link to='/videogame' className='button2'><h3 className='button3'>Crear Juego</h3></Link>
+    <button onClick={e =>{HandleClick(e)}} className='buttonReset'>Reload Page</button>
      <div>
      <SearchBar/>
-     <select  onChange={e => HandlerFilterRating(e)} className='OrdenNav' >   
-       <option value='todos'>Todos</option>             
-       <option value = 'ratinga'>Rating max</option>
-       <option value = 'ratingb'>Rating min</option>
-     </select>
-     <select onChange={e => HandlerFilterCreated(e)} className='OrdenNav' >
-     <option value='todos'>Todos</option>
-     <option value={API}>Existente</option>
-     <option value={DATABASE}>Creado</option>
-     </select>
-
-     <select  onChange={e => HandleFilterGenres(e)} className='OrdenNav' >                
-                {gen.length>0? (gen?.map(el=> {
-                            return<option value={el.name}> {el.name} </option>
-                          })
-                          ) :
-                          (
-                              <option>loading...</option>
-                          )}
-     </select>
     </div>
     </nav>
   );

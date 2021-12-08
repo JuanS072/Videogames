@@ -18,23 +18,38 @@ export default function Details(props){
    
     return <div  className='detailss' >
       <div>
-     <Link to ="/home">
-      <button>Back</button>
+        <div className='center'>
+        <Link to ="/home">
+      <button className='back'>Back</button>
     </Link>
+        </div>
+     
     <div>
     {
       Gamesid.id ? <div className='details'>
         <h1>{Gamesid.name}</h1>
         <img src= {Gamesid.img? Gamesid.img : Gamesid.image} alt="imagen not Found" width="500px" heigth="500px" />
-        <h2>{Gamesid? Gamesid.genero + ' ' : Gamesid.genero?.map( el =>(<div key={el}>{el.name + (' ')}</div>) )}</h2>
+        <div className='top'>
+        <span className='span'>Genres</span>
+       <h2>{Gamesid? Gamesid.genero + ' ' : Gamesid.genero?.map( el =>(<div key={el}>{el.name + (' ')}</div>) )}</h2>
+        <span className='span'>Plataforms</span>
         <h2>{Gamesid.platforms}</h2>
+        <span className='span'>Released</span>
         <h2>{Gamesid.released}</h2>
+        <span className='span'>Description</span>
         <h2>{Gamesid.Descripción}</h2>
+        <span className='span'>Rating</span>
         <h2>{Gamesid.rating}</h2>
-      </div>: <p>Loading...</p>
+        </div>
+      </div>: <p className='center'>Loading...</p>
     }
      </div>
      </div>
+     <div className='center'>
+        <Link to ="/home">
+      <button className='back'>Back</button>
+    </Link>
+        </div>
    </div>
 
 

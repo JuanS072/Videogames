@@ -87,9 +87,6 @@ export default function VideogameCreate(){
     
     return( 
         <div className='h1h2'>
-            <Link to="/home">
-                <button>Volver</button>
-            </Link>
             <div className='form'>
             <h1>Crea tus Videogames</h1>
             <form onSubmit={(e) =>handleSubmit(e)}>
@@ -153,21 +150,25 @@ export default function VideogameCreate(){
                         <p className='error'>{errors.Descripción}</p>
                     )}
                 </div>
-                <select onChange={(e)=>{selectHandle(e)}}>
+                <select className='select1' onChange={(e)=>{selectHandle(e)}}>
                  {genero.map((gen)=>{
                     return  <option value={gen.name}>{gen.name}</option>
                  })}   
                 </select>
                  <ul><li>{input.genero.map(e => e + ", ")}</li></ul>
-               {input.name && input.image && input.platforms && input.released && input.Descripción && <button type='submit' >Crear</button>} 
+               {input.name && input.image && input.platforms && input.released && input.Descripción && <button type='submit' className='botonCrear' >Crear</button>} 
             </form>
-           
-            {input.genero.map(el => <div className='divgen'>
+            {input.genero.map(el => <div className='genres'>
                 <p>{el}</p>
-                <button onClick={()=> handleDelete(el)}>x</button>
+                <button className='boton' onClick={()=> handleDelete(el)}>x</button>
             </div>)}
-            
+            </div>
+            <div className='center1'>
+            <Link to="/home">
+                <button className='backcreate'>Volver</button>
+            </Link>
             </div>
         </div>
+        
     )
 }

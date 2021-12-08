@@ -1,5 +1,5 @@
 import React from "react";
-
+import './home.css'
 export default function Paginado({gamesPage, videogame, paginado}){
     const numbPage = [];
 
@@ -7,14 +7,12 @@ export default function Paginado({gamesPage, videogame, paginado}){
         numbPage.push(i+1)
     }
     return (
-        <nav>
-            <ul  className='navul'>
+        <nav >
+            <ul  className='pages'>
                 {
                     numbPage && numbPage.map(number =>(
                         <li key ={number} >
-                        <span class="separador">| </span>
-                        <a onClick={()=>{paginado(number)}}>{number}</a>
-                        <span class="separador">| </span>
+                        <a className='pagina' onClick={()=>{paginado(number)}}>{number}</a>
                         </li>
                     ))
                 }
