@@ -6,7 +6,7 @@ export default function Videogame({name, image, genero, rating, id}){
     <div>
         <img className='image' src={image} alt="VideogameImage" />
     </div>
-    <div>
+    <div >
         <span className='genres'>{genero}</span>
     </div>
     <span className='rating'>{rating}</span>

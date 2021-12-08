@@ -317,8 +317,24 @@ background-color: darkslategrey;
   color: #16bd00;
   cursor: pointer;
 }
+.containerlin{
+  margin-top:20px;
+}
+.linkedin{
+  text-decoration: none;
+  font-size: 15px;
+  border: 4.5px solid #316B83;
+  border-radius: 5px;
+  background-color:#E6E6E6;
+}
 
-
+.gmail{
+  text-decoration: none;
+  font-size: 15px;
+  border: 4.5px solid #b81e1e;
+  border-radius: 5px;
+  background-color:#faf5f5;
+}
 /* 
 ----------------------------------------------------------------
                   Background de inicio 
